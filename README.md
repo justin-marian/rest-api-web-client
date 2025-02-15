@@ -14,7 +14,7 @@ This project is a **REST API web client** that allows users to communicate with 
 
 ### Library Access
 
-- **enter_library()** – Grants access to the virtual library by sending an authentication request and retrieves a JWT token for further operations.
+- **enter_library()** – Grants access to the virtual library by sending an authentication request and retrieves a `JWT` token for further operations.
 
 ### Book Management
 
@@ -30,6 +30,7 @@ This project is a **REST API web client** that allows users to communicate with 
 ### **1️⃣ GET() – Sends a GET Request**
 
 **Purpose:**  
+
 Retrieves data from the server, such as a list of books or details of a specific book.
 
 **Parameters:**  
@@ -37,7 +38,7 @@ Retrieves data from the server, such as a list of books or details of a specific
 - **host** – The server's hostname or IP address.
 - **url** – The API endpoint to which the request is sent.
 - **query_params** – Optional query parameters to append to the URL.
-- **token** – JWT token for authentication (optional).
+- **token** – `JWT` token for authentication (optional).
 - **cookies** – A vector of session cookies (optional).
 - **cookies_count** – The number of cookies to include in the request.
 
@@ -47,7 +48,7 @@ Retrieves data from the server, such as a list of books or details of a specific
 2. Adds necessary HTTP headers, including:
    - **Host**: The server's hostname or IP address.
    - **Authorization**: Bearer `token` (if authentication is required).
-   - **Cookie**: <session_data> (if session-based authentication is needed).
+   - **Cookie**: `session_data` (if session-based authentication is needed).
 3. Terminates the request with an empty line to signal the end of headers.
 4. Sends the request over the established socket connection and waits for the server's response.
 
@@ -56,14 +57,15 @@ Retrieves data from the server, such as a list of books or details of a specific
 ### **2️⃣ POST() – Sends a POST Request**
 
 **Purpose:**  
+
 Sends data to the server, such as user authentication credentials or book details.
 
 **Parameters:**
 
 - **host** – The server's hostname or IP address.
 - **url** – The API endpoint to which the request is sent.
-- **token** – JWT token for authentication (optional).
-- **content_type** – The format of the request body (e.g., "application/json").
+- **token** – `JWT` token for authentication (optional).
+- **content_type** – The format of the request body (e.g., `application/json`).
 - **body** – A JSON string containing the request data.
 - **body_fields_nr** – The number of fields in the request body.
 - **cookies** – A vector of session cookies (optional).
@@ -75,9 +77,9 @@ Sends data to the server, such as user authentication credentials or book detail
 2. Adds necessary HTTP headers, including:
    - **Host**: The server's hostname or IP address.
    - **Authorization**: Bearer `token` (if authentication is required).
-   - **Content-Type**: Specifies the format of the request body (e.g., "application/json").
-   - **Content-Length**: The length of the JSON body.
-3. Includes the request body (JSON payload) in the request.
+   - **Content-Type**: Specifies the format of the request body (e.g., `application/json`).
+   - **Content-Length**: The length of the `JSON body`.
+3. Includes the request body (`JSON payload`) in the request.
 4. Sends the request over the socket connection and processes the server's response.
 
 ---
@@ -85,13 +87,14 @@ Sends data to the server, such as user authentication credentials or book detail
 ### **3️⃣ DELETE() – Sends a DELETE Request**
 
 **Purpose:**  
+
 Removes a resource from the server, such as deleting a book from the library.
 
 **Parameters:**
 
 - **host** – The server's hostname or IP address.
 - **url** – The API endpoint to which the request is sent.
-- **token** – JWT token for authentication (optional).
+- **token** – `JWT` token for authentication (optional).
 - **content_type** – The format of the request body (usually empty for DELETE requests).
 - **body** – A JSON string containing the request data (usually empty for DELETE requests).
 - **body_fields_nr** – The number of fields in the request body.
@@ -105,7 +108,7 @@ Removes a resource from the server, such as deleting a book from the library.
    - **Host**: The server's hostname or IP address.
    - **Authorization**: Bearer `token` (if authentication is required).
    - **Content-Type**: Specifies the format of the request body (if applicable).
-   - **Content-Length**: The length of the JSON body (if applicable).
+   - **Content-Length**: The length of the `JSON body` (if applicable).
 3. Sends the request over the socket connection and processes the server's response.
 
 ---
@@ -115,6 +118,7 @@ Removes a resource from the server, such as deleting a book from the library.
 ### **4️⃣ extractServerResponse() – Receives and Processes the Server Response**
 
 **Purpose:**  
+
 Retrieves the server's response from the socket and processes it.
 
 **Process:**  
@@ -128,6 +132,7 @@ Retrieves the server's response from the socket and processes it.
 ### **5️⃣ errorJSONReply() – Parses and Handles JSON Errors**
 
 **Purpose:**  
+
 Extracts error messages from JSON responses and handles them appropriately.
 
 **Process:**  
@@ -140,23 +145,25 @@ Extracts error messages from JSON responses and handles them appropriately.
 ### **6️⃣ extractResponseCode() – Extracts the HTTP Status Code**
 
 **Purpose:**  
+
 Retrieves the HTTP status code from the server's response.
 
 **Process:**  
 
-1. Parses the server's response to extract the HTTP status code (e.g., 200 OK, 404 Not Found).
+1. Parses the server's response to extract the HTTP status code (e.g., `200 OK`, `404 Not Found`).
 2. Returns the status code for further processing.
 
 ---
 
 ### **7️⃣ extractJSONResponse() – Extracts the JSON Response Body**
 
-**Purpose:**  
+**Purpose:**
+
 Retrieves the JSON-formatted data from the server's response.
 
 **Process:**  
 
-1. Parses the server's response to extract the JSON body.
+1. Parses the server's response to extract the `JSON body`.
 2. Returns the JSON data for further processing.
 
 ---
@@ -180,6 +187,7 @@ Creates a new user account by sending registration details to the server.
 ### **9️⃣ login() – Logs in a User**
 
 **Purpose:**  
+
 Authenticates the user by verifying login credentials with the server.
 
 **Process:**
@@ -194,12 +202,13 @@ Authenticates the user by verifying login credentials with the server.
 ### **🔟 logout() – Logs out a User**
 
 **Purpose:**  
+
 Terminates the current session and invalidates authentication credentials.
 
 **Process:**  
 
 1. Sends a GET request to the server's logout endpoint.
-2. Clears the session cookie and JWT token, effectively logging the user out.
+2. Clears the session cookie and `JWT` token, effectively logging the user out.
 
 ---
 
@@ -208,12 +217,13 @@ Terminates the current session and invalidates authentication credentials.
 ### **1️⃣1️⃣ enter_library() – Grants Access to the Virtual Library**
 
 **Purpose:**  
+
 Allows the user to enter the virtual library by sending an authentication request.
 
 **Process:**  
 
 1. Sends a GET request to the server with the authentication token.
-2. Extracts and stores the JWT token from the server's response for future library operations.
+2. Extracts and stores the `JWT` token from the server's response for future library operations.
 
 ---
 
@@ -222,6 +232,7 @@ Allows the user to enter the virtual library by sending an authentication reques
 ### **1️⃣2️⃣ get_books() – Fetches a List of All Books**
 
 **Purpose:**  
+
 Retrieves a list of all books available in the library.
 
 **Process:**  
@@ -234,6 +245,7 @@ Retrieves a list of all books available in the library.
 ### **1️⃣3️⃣ get_book() – Fetches a Specific Book**
 
 **Purpose:**  
+
 Retrieves detailed information about a specific book using its unique ID.
 
 **Process:**  
@@ -261,6 +273,7 @@ Adds a new book to the library by sending book details to the server.
 ### **1️⃣5️⃣ del_book() – Deletes a Book**
 
 **Purpose:**  
+
 Removes a book from the library using its unique ID.
 
 **Process:**  
