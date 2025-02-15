@@ -1,6 +1,6 @@
 # 📌 REST API Web Client
 
-This project is a **REST API web client** that allows users to communicate with a remote server using **socket connections and HTTP requests**. It provides functionalities for **user authentication, library access, and book management**, using **GET, POST, and DELETE requests**. The client is built in **C++** and interacts with the server through **manually constructed HTTP requests**, making it lightweight and efficient.
+This project is a **REST API web client** that allows users to communicate with a remote server using **socket connections and HTTP requests**. It provides functionalities for **user authentication, library access, and book management**, using **`GET`, `POST`, and `DELETE` requests**. The client is built in **C++** and interacts with the server through **manually constructed HTTP requests**, making it lightweight and efficient.
 
 ---
 
@@ -27,7 +27,7 @@ This project is a **REST API web client** that allows users to communicate with 
 
 ## 📌 HTTP Request Functions
 
-### **1️⃣ GET() – Sends a GET Request**
+### **1️⃣ GET() – Sends a `GET` Request**
 
 **Purpose:**  
 
@@ -44,7 +44,7 @@ Retrieves data from the server, such as a list of books or details of a specific
 
 **Process:**  
 
-1. Constructs the GET request line, appending the URL and any query parameters if provided.
+1. Constructs the `GET` request line, appending the URL and any query parameters if provided.
 2. Adds necessary HTTP headers, including:
    - **Host**: The server's hostname or IP address.
    - **Authorization**: Bearer `token` (if authentication is required).
@@ -54,7 +54,7 @@ Retrieves data from the server, such as a list of books or details of a specific
 
 ---
 
-### **2️⃣ POST() – Sends a POST Request**
+### **2️⃣ POST() – Sends a `POST` Request**
 
 **Purpose:**  
 
@@ -73,7 +73,7 @@ Sends data to the server, such as user authentication credentials or book detail
 
 **Process:**  
 
-1. Constructs the POST request line, specifying the HTTP method and URL.
+1. Constructs the `POST` request line, specifying the HTTP method and URL.
 2. Adds necessary HTTP headers, including:
    - **Host**: The server's hostname or IP address.
    - **Authorization**: Bearer `token` (if authentication is required).
@@ -84,7 +84,7 @@ Sends data to the server, such as user authentication credentials or book detail
 
 ---
 
-### **3️⃣ DELETE() – Sends a DELETE Request**
+### **3️⃣ DELETE() – Sends a `DELETE` Request**
 
 **Purpose:**  
 
@@ -95,15 +95,15 @@ Removes a resource from the server, such as deleting a book from the library.
 - **host** – The server's hostname or IP address.
 - **url** – The API endpoint to which the request is sent.
 - **token** – `JWT` token for authentication (optional).
-- **content_type** – The format of the request body (usually empty for DELETE requests).
-- **body** – A JSON string containing the request data (usually empty for DELETE requests).
+- **content_type** – The format of the request body (usually empty for `DELETE` requests).
+- **body** – A JSON string containing the request data (usually empty for `DELETE` requests).
 - **body_fields_nr** – The number of fields in the request body.
 - **cookies** – A vector of session cookies (optional).
 - **cookies_count** – The number of cookies to include in the request.
 
 **Process:**  
 
-1. Constructs the DELETE request line, specifying the HTTP method and URL.
+1. Constructs the `DELETE` request line, specifying the HTTP method and URL.
 2. Adds necessary HTTP headers, including:
    - **Host**: The server's hostname or IP address.
    - **Authorization**: Bearer `token` (if authentication is required).
@@ -179,7 +179,7 @@ Creates a new user account by sending registration details to the server.
 
 1. Prompts the user to enter a username and password.
 2. Formats the credentials into a JSON object.
-3. Sends a POST request to the server with the registration details.
+3. Sends a `POST` request to the server with the registration details.
 4. Processes the server's response to confirm successful registration.
 
 ---
@@ -194,7 +194,7 @@ Authenticates the user by verifying login credentials with the server.
 
 1. Prompts the user to enter a username and password.
 2. Formats the credentials into a JSON object.
-3. Sends a POST request to the server to authenticate the user.
+3. Sends a `POST` request to the server to authenticate the user.
 4. Extracts the session cookie from the server's response for future requests.
 
 ---
@@ -207,7 +207,7 @@ Terminates the current session and invalidates authentication credentials.
 
 **Process:**  
 
-1. Sends a GET request to the server's logout endpoint.
+1. Sends a `GET` request to the server's logout endpoint.
 2. Clears the session cookie and `JWT` token, effectively logging the user out.
 
 ---
@@ -222,7 +222,7 @@ Allows the user to enter the virtual library by sending an authentication reques
 
 **Process:**  
 
-1. Sends a GET request to the server with the authentication token.
+1. Sends a `GET` request to the server with the authentication token.
 2. Extracts and stores the `JWT` token from the server's response for future library operations.
 
 ---
@@ -237,7 +237,7 @@ Retrieves a list of all books available in the library.
 
 **Process:**  
 
-1. Sends a GET request to the server to retrieve all books.
+1. Sends a `GET` request to the server to retrieve all books.
 2. Parses the server's response to display the list of books.
 
 ---
@@ -251,7 +251,7 @@ Retrieves detailed information about a specific book using its unique ID.
 **Process:**  
 
 1. Prompts the user to enter the book's ID.
-2. Sends a GET request to the server to fetch the book's details.
+2. Sends a `GET` request to the server to fetch the book's details.
 3. Parses the server's response to display the book's information.
 
 ---
@@ -265,7 +265,7 @@ Adds a new book to the library by sending book details to the server.
 
 1. Prompts the user to enter the book's details (title, author, genre, page count, publisher).
 2. Formats the book details into a JSON object.
-3. Sends a POST request to the server with the book data.
+3. Sends a `POST` request to the server with the book data.
 4. Processes the server's response to confirm successful addition.
 
 ---
@@ -279,7 +279,7 @@ Removes a book from the library using its unique ID.
 **Process:**  
 
 1. Prompts the user to enter the book's ID.
-2. Sends a DELETE request to the server to remove the book.
+2. Sends a `DELETE` request to the server to remove the book.
 3. Processes the server's response to confirm successful deletion.
 
 ---
